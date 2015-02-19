@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_ove_groupe"  sequence="8"  name="Groupes OVE" parent="is_ove.menu_is_ove"  />
+
+        <!-- Document -->
+        <record id="view_ove_groupe_tree" model="ir.ui.view">
+            <field name="name">ove.groupe.tree</field>
+            <field name="model">ove.groupe</field>
+            <field name="arch" type="xml">
+                <tree string="Données Métier">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_ove_groupe_filter" model="ir.ui.view">
+            <field name="name">ove.groupe.select</field>
+            <field name="model">ove.groupe</field>
+            <field name="arch" type="xml">
+                <search string="Recherche">
+                  <field name="name" />
+                  <field name="comment" />
+                  <field name="user_ids" />
+               </search>
+            </field>
+        </record>
+        
+        <record id="view_ove_groupe_form" model="ir.ui.view">
+            <field name="name">ove.groupe.form</field>
+            <field name="model">ove.groupe</field>
+            <field name="arch" type="xml">
+                <form string="Groupe OVE">
+                  <sheet>
+                    <group>
+                      <field name="name" />
+                      <field name="comment" />
+                      <field name="user_ids" widget="many2many_tags"/>
+                    </group>
+                  </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_ove_groupe" model="ir.actions.act_window">
+            <field name="name">Groupe OVE</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ove.groupe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_ove_groupe_filter"/>
+        </record>
+
+        <menuitem action="action_ove_groupe" 
+          id="menu_action_ove_groupe"  sequence="1"  
+          name="Groupe OVE" 
+          parent="menu_ove_groupe" />
+
+    </data>
+</openerp>
