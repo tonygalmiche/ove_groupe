@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-        <menuitem id="menu_ove_groupe"  sequence="8"  name="Groupes OVE" parent="is_ove.menu_is_ove"  />
+        <menuitem id="menu_ove_groupe"  sequence="8"  name="Groupes OVE" parent="is_ove.menu_is_ove"/>
 
         <!-- Document -->
         <record id="view_ove_groupe_tree" model="ir.ui.view">
@@ -34,9 +34,11 @@
                 <form string="Groupe OVE">
                   <sheet>
                     <group>
+                      <field name="code" invisible="1"/>
                       <field name="name" />
                       <field name="comment" />
                       <field name="user_ids" widget="many2many_tags"/>
+                      <field name="usager_id" invisible="1"/>
                     </group>
                   </sheet>
                 </form>
